@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TA Tech Media | Kodla İnşa Ediyoruz, Reklamla Büyütüyoruz</title>
+  <meta name="description" content="Yüksek performanslı web yazılımları ve satış getiren profesyonel Meta reklam yönetimi tek çatı altında. Dijital dönüşüm ve büyüme ortağınız.">
+  
+  <!-- SEO & Social Open Graph -->
+  <meta property="og:title" content="TA Tech Media | Kodla İnşa Ediyoruz, Reklamla Büyütüyoruz">
+  <meta property="og:description" content="Yüksek performanslı web yazılımları ve satış getiren profesyonel Meta reklam yönetimi tek çatı altında.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon & Mobile Browser Theming -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="theme-color" content="#060B13">
+
+  <!-- Google Fonts - Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep: '#060B13',     /* Deep Midnight Blue background */
+              card: '#0D1424',     /* Dark navy blue card background */
+              accent: '#00F2FE',   /* Vibrant turquoise highlight */
+              accentHover: '#00D8E4',
+              accentLight: 'rgba(0, 242, 254, 0.1)',
+              blueAccent: '#1D4ED8', /* Tech blue */
+              darkBlue: '#0B132B'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow-pulse': 'glow-pulse 2s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            'glow-pulse': {
+              '0%, 100%': { boxShadow: '0 0 15px rgba(0, 242, 254, 0.3)' },
+              '50%': { boxShadow: '0 0 25px rgba(0, 242, 254, 0.6)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Premium scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060B13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00F2FE;
+    }
+
+    /* Selection Color */
+    ::selection {
+      background: rgba(0, 242, 254, 0.3);
+      color: #FFFFFF;
+    }
+
+    /* Custom utilities for gradients and glow effects */
+    .glow-bg {
+      background: radial-gradient(circle at 50% 50%, rgba(0, 242, 254, 0.08) 0%, transparent 60%);
+    }
+    .neon-border-glow:hover {
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+    }
+    
+    /* Scroll padding to avoid navbar overlapping targets */
+    html {
+      scroll-padding-top: 85px;
+    }
+  </style>
+</head>
+<body class="bg-brand-deep text-slate-100 font-sans overflow-x-hidden antialiased">
+
+  <!-- BACKGROUND GLOW BLOB DECORATIONS -->
+  <div class="fixed top-0 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] glow-bg rounded-full pointer-events-none blur-[80px] -z-10"></div>
+  <div class="fixed top-1/3 right-1/4 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] glow-bg rounded-full pointer-events-none blur-[100px] -z-10"></div>
+  <div class="fixed bottom-1/4 left-10 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] glow-bg rounded-full pointer-events-none blur-[90px] -z-10"></div>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-deep/80 border-b border-slate-900" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+      <!-- Logo Container -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="relative flex items-center justify-center py-1">
+          <div class="absolute inset-0 bg-brand-accent/20 blur-xl rounded-full scale-75 group-hover:scale-90 transition-transform duration-300"></div>
+          <img src="logo.png" alt="TA Tech Media Logo" class="relative h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#hizmetler" class="text-sm font-medium text-slate-300 hover:text-brand-accent transition-colors duration-200">Hizmetler</a>
+        <a href="#entegre-guc" class="text-sm font-medium text-slate-300 hover:text-brand-accent transition-colors duration-200">Entegre Güç</a>
+        <a href="#paketler" class="text-sm font-medium text-slate-300 hover:text-brand-accent transition-colors duration-200">Paketler</a>
+        <a href="#iletisim" class="text-sm font-medium text-slate-300 hover:text-brand-accent transition-colors duration-200">İletişim</a>
+      </nav>
+
+      <!-- Desktop CTA Button -->
+      <div class="hidden md:block">
+        <a href="#iletisim" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-brand-deep bg-brand-accent hover:bg-brand-accentHover shadow-[0_0_15px_rgba(0,242,254,0.3)] hover:shadow-[0_0_25px_rgba(0,242,254,0.6)] transition-all duration-300 animate-glow-pulse">
+          Teklif Al
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="md:hidden -mr-2 p-2.5 text-slate-300 hover:text-brand-accent active:scale-90 focus:outline-none transition-all duration-200" id="menu-btn" aria-label="Toggle Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Dropdown (Hidden initially, slides smoothly) -->
+    <div class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-brand-deep/95 border-b border-slate-900" id="mobile-menu">
+      <div class="px-4 pt-2 pb-6 space-y-3 flex flex-col">
+        <a href="#hizmetler" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-brand-accent py-2 border-b border-slate-800/50">Hizmetler</a>
+        <a href="#entegre-guc" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-brand-accent py-2 border-b border-slate-800/50">Entegre Güç</a>
+        <a href="#paketler" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-brand-accent py-2 border-b border-slate-800/50">Paketler</a>
+        <a href="#iletisim" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-brand-accent py-2 border-b border-slate-800/50">İletişim</a>
+        <a href="#iletisim" class="mobile-nav-link text-center px-5 py-3 mt-2 rounded-xl text-sm font-bold text-brand-deep bg-brand-accent shadow-[0_0_15px_rgba(0,242,254,0.3)]">
+          Teklif Al
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-screen flex items-center pt-28 pb-16 px-4 md:px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
+      
+      <!-- Text Info (7 cols on lg, responsive centering) -->
+      <div class="lg:col-span-7 flex flex-col space-y-6 text-center lg:text-left items-center lg:items-start">
+        <!-- Floating Badge -->
+        <div class="inline-flex items-center space-x-2 bg-brand-accentLight border border-brand-accent/20 rounded-full px-4 py-1.5 w-fit animate-pulse-slow">
+          <span class="text-[10px] sm:text-xs font-bold text-brand-accent uppercase tracking-wider">🚀 DİJİTAL DÖNÜŞÜM & BÜYÜME AJANSI</span>
+        </div>
+
+        <!-- H1 Header -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+          Kodla İnşa Ediyoruz, <br class="hidden sm:inline">
+          <span class="bg-gradient-to-r from-brand-accent to-blue-500 bg-clip-text text-transparent">Reklamla Büyütüyoruz.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-xl leading-relaxed">
+          İşletmeniz için yüksek performanslı web yazılımları ve satış getiren profesyonel Meta reklam yönetimi tek çatı altında.
+        </p>
+
+        <!-- Call-to-actions -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4 w-full sm:w-auto">
+          <a href="#iletisim" class="group inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-bold text-brand-deep bg-brand-accent hover:bg-brand-accentHover hover:scale-[1.02] shadow-[0_0_20px_rgba(0,242,254,0.25)] transition-all duration-300 text-center">
+            Ücretsiz Ön Analiz Al
+            <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+          <a href="#hizmetler" class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-bold text-slate-300 border border-slate-800 hover:border-brand-accent hover:text-white transition-all duration-300 text-center">
+            Hizmetleri İncele
+          </a>
+        </div>
+
+        <!-- Trust Badges / Social Proof -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-6 pt-6 border-t border-slate-900/60 mt-4 w-full text-center sm:text-left">
+          <div class="flex space-x-1 text-yellow-400 flex-shrink-0">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <span class="text-xs font-semibold text-slate-400">Veri Odaklı Dijital Pazarlama ve Gelişmiş Kod Altyapısı</span>
+        </div>
+      </div>
+
+      <!-- Right Visual Feature (5 cols on lg, safe adaptive heights) -->
+      <div class="lg:col-span-5 relative w-full flex items-center justify-center">
+        <!-- Floating Interactive Mockup UI -->
+        <div class="relative w-full max-w-[420px] min-h-[380px] sm:min-h-[400px] rounded-3xl bg-gradient-to-tr from-slate-900 to-brand-card p-[1px] shadow-[0_20px_50px_rgba(0,242,254,0.1)] animate-float flex flex-col">
+          <div class="w-full h-full bg-brand-card/95 rounded-3xl p-5 sm:p-6 flex flex-col justify-between flex-grow overflow-hidden">
+            <!-- Mock Header -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+              </div>
+              <span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase">Live Metrics</span>
+            </div>
+
+            <!-- Graphic Dashboard -->
+            <div class="space-y-5 my-auto py-4">
+              <!-- Pixel Firing Event Mock -->
+              <div class="flex items-center justify-between bg-brand-deep/60 p-3 sm:p-4 rounded-xl border border-slate-800/80">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-lg bg-brand-accentLight border border-brand-accent/20 flex items-center justify-center text-brand-accent font-semibold text-xs">
+                    CAPI
+                  </div>
+                  <div>
+                    <h3 class="text-xs font-bold text-white">Meta Conversions API</h3>
+                    <p class="text-[10px] text-green-400">Active & Syncing</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end">
+                  <span class="text-xs font-mono font-bold text-brand-accent">100%</span>
+                  <span class="text-[9px] text-slate-500">Matching Quality</span>
+                </div>
+              </div>
+
+              <!-- ROAS Increase graph representation -->
+              <div class="p-3 bg-brand-deep/30 rounded-xl border border-slate-900 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-semibold text-slate-400">Yatırım Getirisi (ROAS)</span>
+                  <span class="text-xs font-mono font-extrabold text-brand-accent">+264%</span>
+                </div>
+                <!-- Custom SVG Line Graph -->
+                <svg viewBox="0 0 100 25" class="w-full h-12 overflow-visible">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#00F2FE" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#00F2FE" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Path Area -->
+                  <path d="M 0 25 Q 20 20 40 12 T 80 5 L 100 0 L 100 25 Z" fill="url(#chartGrad)"/>
+                  <!-- Path Line -->
+                  <path d="M 0 25 Q 20 20 40 12 T 80 5 L 100 0" fill="none" stroke="#00F2FE" stroke-width="2"/>
+                  <!-- Interactive Dots -->
+                  <circle cx="100" cy="0" r="3" fill="#00F2FE" class="animate-ping"/>
+                  <circle cx="100" cy="0" r="2" fill="#FFFFFF"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Mock Footer Stats -->
+            <div class="flex justify-between items-center text-center border-t border-slate-800/60 pt-4 mt-auto">
+              <div>
+                <span class="text-[9px] text-slate-500 block">Sayfa Hızı</span>
+                <span class="text-xs font-bold text-white">0.4s</span>
+              </div>
+              <div class="h-6 w-[1px] bg-slate-800"></div>
+              <div>
+                <span class="text-[9px] text-slate-500 block">Veri Kalitesi</span>
+                <span class="text-xs font-bold text-white">99.8%</span>
+              </div>
+              <div class="h-6 w-[1px] bg-slate-800"></div>
+              <div>
+                <span class="text-[9px] text-slate-500 block">Dönüşüm Artışı</span>
+                <span class="text-xs font-bold text-white">+48%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aesthetic Ring Overlay -->
+        <div class="absolute -z-10 w-[280px] sm:w-[450px] h-[280px] sm:h-[450px] border border-brand-accent/5 rounded-full pointer-events-none"></div>
+        <div class="absolute -z-10 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] border border-brand-accent/5 rounded-full pointer-events-none rotate-45"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HİZMETLERİMİZ -->
+  <section id="hizmetler" class="py-20 md:py-28 px-4 md:px-8 relative">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <!-- Section Title -->
+      <div class="text-center space-y-4 max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Hizmetlerimiz</span>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+          Büyümenizi Hızlandıran Dijital Çözümler
+        </h2>
+        <div class="h-1 w-20 bg-brand-accent mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        
+        <!-- Web Yazılım & Site Kurulumu -->
+        <div class="group relative rounded-3xl bg-brand-card/40 border border-slate-800/80 p-6 md:p-10 hover:border-brand-accent/40 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,242,254,0.1)] hover:-translate-y-1.5 flex flex-col justify-between">
+          <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"></div>
+          
+          <div class="flex flex-col space-y-6">
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-2xl bg-brand-accentLight border border-brand-accent/20 flex items-center justify-center text-brand-accent">
+              <!-- Web SVG Icon -->
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            
+            <!-- Title -->
+            <h3 class="text-2xl font-bold text-white">Web Yazılım & Site Kurulumu</h3>
+            
+            <!-- Description -->
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+              Hızlı, SEO uyumlu ve kullanıcı dostu özel web projeleriyle markanızın dijital varlığını güçlendiriyoruz.
+            </p>
+
+            <!-- Features List -->
+            <ul class="space-y-3.5 pt-4 border-t border-slate-900">
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">E-Ticaret:</strong> Satış odaklı, güvenli ve modern e-ticaret siteleri.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">Kurumsal Siteler:</strong> Prestijinizi yansıtan, profesyonel kurumsal sayfalar.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">Landing Page:</strong> Doğrudan dönüşüm odaklı, tek sayfa özel tasarımlar.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">Yönetim Paneli Çözümleri:</strong> Tamamen ihtiyaçlarınıza göre uyarlanmış paneller.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Meta Reklam Yönetimi -->
+        <div class="group relative rounded-3xl bg-brand-card/40 border border-slate-800/80 p-6 md:p-10 hover:border-brand-accent/40 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,242,254,0.1)] hover:-translate-y-1.5 flex flex-col justify-between">
+          <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"></div>
+          
+          <div class="flex flex-col space-y-6">
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-2xl bg-brand-accentLight border border-brand-accent/20 flex items-center justify-center text-brand-accent">
+              <!-- Meta SVG Icon -->
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+              </svg>
+            </div>
+            
+            <!-- Title -->
+            <h3 class="text-2xl font-bold text-white">Meta Reklam Yönetimi</h3>
+            
+            <!-- Description -->
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+              Doğru kitleye, doğru bütçe ve doğru stratejiyle ulaşarak reklam bütçenizi ciroya dönüştürüyoruz.
+            </p>
+
+            <!-- Features List -->
+            <ul class="space-y-3.5 pt-4 border-t border-slate-900">
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">Kreatif Kampanyalar:</strong> Facebook ve Instagram için yüksek dikkat çeken reklamlar.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">Pixel & Dönüşüm API Entegrasyonu:</strong> iOS kısıtlamalarına takılmayan veri ölçümlemesi.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">Hedef Kitle Analizi:</strong> Satın alma eğilimi yüksek kitlelerin tespiti ve hedeflenmesi.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="mt-1 flex-shrink-0 text-brand-accent">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-slate-300 font-medium"><strong class="text-white font-semibold">Bütçe Optimizasyonu:</strong> En düşük edinme maliyeti (CPA) ile en yüksek ROAS değerleri.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTEGRE GÜÇ -->
+  <section id="entegre-guc" class="py-20 md:py-28 px-4 md:px-8 bg-slate-950/40 border-y border-slate-900 relative">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Text Column -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Entegre Güç</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-white">
+            Yazılımcınız reklamdan, reklamcınız koddan anlamıyorsa zaman kaybedersiniz.
+          </h2>
+          <div class="h-1.5 w-16 bg-brand-accent rounded-full mx-auto lg:mx-0"></div>
+          
+          <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p>
+              Geleneksel pazarlamada web sitenizi bir yazılım firmasına yaptırır, reklamlarınızı ise ayrı bir reklam ajansına teslim edersiniz. Bu durum, veri entegrasyonu kopukluğuna, hatalı pixel kurulumlarına ve dolayısıyla boşa harcanan binlerce liralık bütçelere yol açar.
+            </p>
+            <p class="border-l-2 border-brand-accent pl-4 font-semibold text-white text-left">
+              TA Tech Media olarak bu sınırı tamamen ortadan kaldırıyoruz.
+            </p>
+            <p>
+              Biz web sitenizi daha ilk satır kodundan itibaren Meta Pixel ve Dönüşüm API'lerine (Conversions API) %100 uyumlu olarak kodluyoruz. Bu sayede, reklamlarınız anlık ve eksiksiz veriyle besleniyor, yapay zeka doğru alıcıyı çok daha hızlı buluyor.
+            </p>
+          </div>
+        </div>
+
+        <!-- Graphic Visualization Column (Adaptive widths for mobile) -->
+        <div class="lg:col-span-6 flex flex-col space-y-8 w-full max-w-xl mx-auto lg:max-w-none">
+          
+          <!-- Standard Agency vs TA Tech Media diagram card -->
+          <div class="bg-brand-card/30 border border-slate-800/80 rounded-3xl p-5 md:p-8 space-y-6 sm:space-y-8">
+            <h3 class="text-sm font-bold text-center text-slate-400">Piksel Entegrasyon Farkı</h3>
+            
+            <div class="space-y-6">
+              <!-- Separated agency model -->
+              <div class="space-y-2">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="text-red-400 font-bold flex items-center">
+                    <span class="w-2 h-2 rounded-full bg-red-400 mr-2 animate-pulse"></span> Hatalı / Kopuk Model
+                  </span>
+                  <span class="text-slate-500 font-mono text-[10px]">Standart Ajans</span>
+                </div>
+                <div class="flex items-start space-x-3 bg-red-950/20 border border-red-900/40 rounded-xl p-3 md:p-4 text-xs text-red-200">
+                  <span class="font-bold flex-shrink-0 text-red-400">✖</span>
+                  <p class="leading-relaxed">Yazılımcı kodu yazar, reklamcı pikselleri kurmaya çalışır. Tarayıcı engelleri (iOS 14+) sebebiyle verilerin %40'a yakını kaybolur, bütçe israf olur.</p>
+                </div>
+              </div>
+
+              <!-- Connector indicator (versus) -->
+              <div class="flex justify-center items-center">
+                <span class="px-3 py-1 bg-slate-900 rounded-full border border-slate-800 text-[10px] text-slate-500 font-bold uppercase tracking-widest">VS</span>
+              </div>
+
+              <!-- TA Tech integrated model -->
+              <div class="space-y-2">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="text-brand-accent font-bold flex items-center">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent mr-2 animate-pulse"></span> %100 Entegre Model
+                  </span>
+                  <span class="text-brand-accent font-mono font-bold text-[10px]">TA Tech Media</span>
+                </div>
+                <div class="flex items-start space-x-3 bg-brand-accentLight border border-brand-accent/20 rounded-xl p-3 md:p-4 text-xs text-brand-accent/90">
+                  <span class="font-bold flex-shrink-0 text-brand-accent text-sm">✔</span>
+                  <p class="leading-relaxed">Kod tabanından sunucu tarafına (Server-side) Meta Pixel ve API kurulumu doğrudan yapılır. En verimli reklam performansına ilk günden ulaşırsınız.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HİZMET PAKETLERİ -->
+  <section id="paketler" class="py-20 md:py-28 px-4 md:px-8 relative">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <!-- Section Header -->
+      <div class="text-center space-y-4 max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Hizmet Paketleri</span>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+          İhtiyacınıza Uygun Esnek Modeller
+        </h2>
+        <div class="h-1 w-20 bg-brand-accent mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Pricing Columns -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-md sm:max-w-2xl lg:max-w-none mx-auto">
+        
+        <!-- Package 1: Web Tasarım -->
+        <div class="bg-brand-card/40 border border-slate-800 rounded-3xl p-6 md:p-8 flex flex-col justify-between hover:border-slate-700 hover:-translate-y-1.5 transition-all duration-300">
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-white">Sadece Sahne</h3>
+            <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-wider bg-brand-accentLight border border-brand-accent/15 px-3 py-1 rounded-full w-fit">
+              Web Tasarım & Yazılım
+            </p>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              İnternette profesyonel ve kurumsal bir duruş sergilemek isteyen işletmeler için modern, şık ve hızlı web yazılım paketidir.
+            </p>
+            <div class="h-[1px] bg-slate-800/80"></div>
+            <!-- Features -->
+            <ul class="space-y-3.5 text-slate-300 text-sm">
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>Özel Modern Web Tasarımı</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>Mobil & Tablet Uyumlu Arayüz</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>SEO Dostu Hızlı Kodlama Altyapısı</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>Sosyal Medya Link Entegrasyonları</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-8">
+            <a href="#iletisim" class="block text-center py-3.5 px-6 rounded-xl text-sm font-bold text-slate-200 border border-slate-800 hover:border-brand-accent hover:text-white transition-all duration-300">
+              Detaylı Bilgi Al
+            </a>
+          </div>
+        </div>
+
+        <!-- Package 2: Web + Meta Reklam (POPULAR) -->
+        <div class="relative bg-gradient-to-b from-brand-card via-brand-card/95 to-brand-card/90 border-2 border-brand-accent rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-[0_15px_40px_rgba(0,242,254,0.15)] hover:shadow-[0_20px_50px_rgba(0,242,254,0.25)] transition-all duration-300 scale-100 lg:scale-[1.03] z-10">
+          <!-- Popular badge -->
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-accent text-brand-deep font-extrabold text-[10px] sm:text-xs uppercase tracking-widest px-6 py-1.5 rounded-full shadow-[0_0_15px_rgba(0,242,254,0.5)] whitespace-nowrap">
+            EN POPÜLER
+          </div>
+          
+          <div class="space-y-6 pt-2">
+            <h3 class="text-2xl font-extrabold text-white">Anahtar Teslim Büyüme</h3>
+            <p class="text-[10px] font-semibold text-brand-deep uppercase tracking-wider bg-brand-accent px-3 py-1 rounded-full w-fit">
+              Web Tasarım + Meta Reklam
+            </p>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Sitenizi mükemmel kod altyapısıyla kurup, Meta reklamlarınızı aynı veri entegrasyonuyla 1 ay boyunca profesyonelce yönettiğimiz komple paket.
+            </p>
+            <div class="h-[1px] bg-brand-accent/20"></div>
+            <!-- Features -->
+            <ul class="space-y-3.5 text-slate-200 text-sm">
+              <li class="flex items-center space-x-3">
+                <svg class="w-[18px] h-[18px] text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span><strong class="text-white font-semibold">Profesyonel Web Sitesi</strong> Kurulumu</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-[18px] h-[18px] text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span><strong class="text-white font-semibold">Meta Pixel & Conversions API</strong> Entegrasyonu</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-[18px] h-[18px] text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span><strong class="text-white font-semibold">1 Ay Reklam Yönetimi</strong> & Bütçe Optimizasyonu</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-[18px] h-[18px] text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span><strong class="text-white font-semibold">Kreatif Reklam & Metin</strong> Danışmanlığı</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-8">
+            <a href="#iletisim" class="block text-center py-4 px-6 rounded-xl text-sm font-bold text-brand-deep bg-brand-accent hover:bg-brand-accentHover shadow-[0_0_15px_rgba(0,242,254,0.3)] transition-all duration-300">
+              Bu Paketle Büyümeye Başla
+            </a>
+          </div>
+        </div>
+
+        <!-- Package 3: Meta Reklam -->
+        <div class="sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none bg-brand-card/40 border border-slate-800 rounded-3xl p-6 md:p-8 flex flex-col justify-between hover:border-slate-700 hover:-translate-y-1.5 transition-all duration-300">
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-white">Sadece Seyirci</h3>
+            <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-wider bg-brand-accentLight border border-brand-accent/15 px-3 py-1 rounded-full w-fit">
+              Meta Reklam Yönetimi
+            </p>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Mevcut bir web sitesi veya e-ticaret altyapısı olup, reklam bütçesini daha verimli kullanarak cirosunu katlamak isteyen markalara özel.
+            </p>
+            <div class="h-[1px] bg-slate-800/80"></div>
+            <!-- Features -->
+            <ul class="space-y-3.5 text-slate-300 text-sm">
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>Reklam Hesabı & Business Manager Kurulumu</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>Kapsamlı Pixel & Olay Kodları Denetimi</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>Özel Hedef Kitle Modelleme (A/B Test)</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <span>Ölçeklenebilir Kampanya Optimizasyonları</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-8">
+            <a href="#iletisim" class="block text-center py-3.5 px-6 rounded-xl text-sm font-bold text-slate-200 border border-slate-800 hover:border-brand-accent hover:text-white transition-all duration-300">
+              Detaylı Bilgi Al
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM FORMU -->
+  <section id="iletisim" class="py-20 md:py-28 px-4 md:px-8 relative bg-slate-950/20">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left Side: Copy and Details -->
+        <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent">Bize Ulaşın</span>
+          <h2 class="text-3xl md:text-4xl font-bold leading-tight text-white">
+            İşinizi Birlikte Büyütelim.
+          </h2>
+          <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+            Dijital hedeflerinizi anlatın, sizin için en uygun teknik entegrasyonu ve reklam stratejisini içeren ücretsiz bir analiz hazırlayalım.
+          </p>
+
+          <!-- Contact details list (Responsive layout alignment) -->
+          <div class="flex flex-col sm:flex-row lg:flex-col items-center justify-center lg:justify-start gap-6 pt-6 sm:space-x-8 lg:space-x-0">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-accentLight border border-brand-accent/20 flex items-center justify-center text-brand-accent flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div class="text-left">
+                <span class="text-[9px] sm:text-[10px] text-slate-500 block uppercase font-bold">Bize Yazın</span>
+                <span class="text-xs sm:text-sm font-semibold text-white">tatechmedia.iletisim@gmail.com</span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-accentLight border border-brand-accent/20 flex items-center justify-center text-brand-accent flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+              <div class="text-left">
+                <span class="text-[9px] sm:text-[10px] text-slate-500 block uppercase font-bold">Konum</span>
+                <span class="text-xs sm:text-sm font-semibold text-white">Türkiye</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Contact Form (Safe paddings) -->
+        <div class="lg:col-span-7 w-full bg-brand-card/40 border border-slate-800 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-2xl relative">
+          <!-- Form Header -->
+          <div class="mb-6 text-center lg:text-left">
+            <h3 class="text-xl font-bold text-white">Analiz Formu</h3>
+            <p class="text-xs text-slate-400">Tüm alanları doldurarak hedeflerinizi iletebilirsiniz.</p>
+          </div>
+
+          <!-- Formspree Integration Form -->
+          <form action="https://formspree.io/f/mnqeazgr" method="POST" id="contact-form" class="space-y-5">
+            
+            <!-- Grid fields Name + Phone -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-xs font-bold text-slate-300 uppercase tracking-wide mb-2">Adı Soyadı</label>
+                <input type="text" id="name" name="name" required class="w-full bg-brand-deep border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300" placeholder="Örn: Ahmet Yılmaz">
+              </div>
+              <div>
+                <label for="phone" class="block text-xs font-bold text-slate-300 uppercase tracking-wide mb-2">Telefon Numarası</label>
+                <input type="tel" id="phone" name="phone" required class="w-full bg-brand-deep border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300" placeholder="Örn: 0555 123 4567">
+              </div>
+            </div>
+
+            <!-- Website URL field -->
+            <div>
+              <label for="website" class="block text-xs font-bold text-slate-300 uppercase tracking-wide mb-2">Varsa Web Siteniz</label>
+              <input type="url" id="website" name="website" class="w-full bg-brand-deep border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300" placeholder="https://ornek.com">
+            </div>
+
+            <!-- Service Selection Dropdown -->
+            <div>
+              <label for="service" class="block text-xs font-bold text-slate-300 uppercase tracking-wide mb-2">İlgilendiğiniz Hizmet</label>
+              <div class="relative">
+                <select id="service" name="service" required class="w-full bg-brand-deep border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300 appearance-none cursor-pointer">
+                  <option value="" disabled selected class="bg-brand-card text-slate-400">Bir hizmet seçin...</option>
+                  <option value="Web Tasarım & Yazılım" class="bg-brand-card text-slate-100">Web Tasarım & Yazılım</option>
+                  <option value="Meta Reklam Yönetimi" class="bg-brand-card text-slate-100">Meta Reklam Yönetimi</option>
+                  <option value="Anahtar Teslim Büyüme (Komple Paket)" class="bg-brand-card text-slate-100">Anahtar Teslim Büyüme (Komple Paket)</option>
+                  <option value="Özel Entegrasyon / Danışmanlık" class="bg-brand-card text-slate-100">Özel Entegrasyon / Danışmanlık</option>
+                </select>
+                <!-- Custom Arrow Indicator -->
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                  <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details Message -->
+            <div>
+              <label for="details" class="block text-xs font-bold text-slate-300 uppercase tracking-wide mb-2">Proje Detayları</label>
+              <textarea id="details" name="details" rows="4" required class="w-full bg-brand-deep border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300 resize-none" placeholder="Projeniz veya reklam hedefleriniz hakkında kısa bilgi verin..."></textarea>
+            </div>
+
+            <!-- Submit Button with glow -->
+            <div class="pt-2">
+              <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl text-sm font-bold text-brand-deep bg-brand-accent hover:bg-brand-accentHover hover:scale-[1.01] shadow-[0_0_15px_rgba(0,242,254,0.25)] transition-all duration-300 flex items-center justify-center cursor-pointer">
+                <span>Formu Gönder</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l7-7m0 0l-7-7m7 7H5"></path></svg>
+              </button>
+            </div>
+            
+            <!-- Submission status message container -->
+            <div id="form-status" class="hidden mt-4 text-center text-xs font-bold py-3 px-4 rounded-xl"></div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-deep border-t border-slate-900 py-16 px-4 md:px-8 relative">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        
+        <!-- Footer Logo -->
+        <a href="#" class="flex items-center space-x-3">
+          <img src="logo.png" alt="TA Tech Media Logo" class="h-9 w-auto object-contain">
+        </a>
+
+        <!-- Quick Links -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
+          <a href="#hizmetler" class="hover:text-brand-accent transition-colors duration-200">Hizmetler</a>
+          <a href="#entegre-guc" class="hover:text-brand-accent transition-colors duration-200">Entegre Güç</a>
+          <a href="#paketler" class="hover:text-brand-accent transition-colors duration-200">Paketler</a>
+          <a href="#iletisim" class="hover:text-brand-accent transition-colors duration-200">İletişim</a>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <!-- X/Twitter -->
+          <a href="#" aria-label="Twitter Profile" class="w-9 h-9 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-center text-slate-400 hover:text-brand-accent hover:border-brand-accent/50 hover:shadow-[0_0_10px_rgba(0,242,254,0.15)] transition-all duration-300">
+            <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram Profile" class="w-9 h-9 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-center text-slate-400 hover:text-brand-accent hover:border-brand-accent/50 hover:shadow-[0_0_10px_rgba(0,242,254,0.15)] transition-all duration-300">
+            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" aria-label="LinkedIn Profile" class="w-9 h-9 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-center text-slate-400 hover:text-brand-accent hover:border-brand-accent/50 hover:shadow-[0_0_10px_rgba(0,242,254,0.15)] transition-all duration-300">
+            <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 border-t border-slate-900/80 pt-8 space-y-4 md:space-y-0 text-center md:text-left">
+        <span>&copy; 2026 TA Tech Media. Tüm Hakları Saklıdır.</span>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-slate-400 transition-colors duration-200">Gizlilik Politikası</a>
+          <a href="#" class="hover:text-slate-400 transition-colors duration-200">Kullanım Şartları</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT FOR DYNAMIC INTERACTIVITY -->
+  <script>
+    // Sticky header shadow change on scroll
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-2xl', 'bg-brand-deep/95', 'py-1');
+        header.classList.remove('bg-brand-deep/80');
+      } else {
+        header.classList.remove('shadow-2xl', 'bg-brand-deep/95', 'py-1');
+        header.classList.add('bg-brand-deep/80');
+      }
+    });
+
+    // Mobile menu toggle & Hamburger morphing animation
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = menuBtn.querySelector('svg');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('max-h-[400px]');
+      if (isOpen) {
+        mobileMenu.classList.remove('max-h-[400px]');
+        mobileMenu.classList.add('max-h-0');
+        // Change back to hamburger icon
+        menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>`;
+      } else {
+        mobileMenu.classList.remove('max-h-0');
+        mobileMenu.classList.add('max-h-[400px]');
+        // Morph to close (X) icon
+        menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>`;
+      }
+    });
+
+    // Close mobile menu smoothly when a link is clicked
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('max-h-[400px]');
+        mobileMenu.classList.add('max-h-0');
+        menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>`;
+      });
+    });
+
+    // Formspree Handling and Success/Error animations
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const formStatus = document.getElementById('form-status');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent standard redirect
+      
+      // Update UI to show sending state
+      const originalBtnContent = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-brand-deep" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Gönderiliyor...</span>
+      `;
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Success state
+          formStatus.classList.remove('hidden', 'bg-red-950/20', 'border-red-900/40', 'text-red-300');
+          formStatus.classList.add('bg-brand-accentLight', 'border', 'border-brand-accent/20', 'text-brand-accent');
+          formStatus.innerHTML = '✔ Talebiniz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz!';
+          contactForm.reset();
+        } else {
+          // Failure state
+          const data = await response.json();
+          formStatus.classList.remove('hidden', 'bg-brand-accentLight', 'border-brand-accent/20', 'text-brand-accent');
+          formStatus.classList.add('bg-red-950/20', 'border', 'border-red-900/40', 'text-red-300');
+          formStatus.innerHTML = '✖ Gönderim sırasında bir hata oluştu: ' + (data.errors ? data.errors.map(err => err.message).join(', ') : 'Lütfen bilgilerinizi kontrol edin.');
+        }
+      } catch (error) {
+        // Network/other errors
+        formStatus.classList.remove('hidden', 'bg-brand-accentLight', 'border-brand-accent/20', 'text-brand-accent');
+        formStatus.classList.add('bg-red-950/20', 'border', 'border-red-900/40', 'text-red-300');
+        formStatus.innerHTML = '✖ Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.';
+      } finally {
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+        
+        // Show status block
+        formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  </script>
+</body>
+</html>
